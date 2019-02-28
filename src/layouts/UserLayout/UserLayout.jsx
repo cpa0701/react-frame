@@ -19,7 +19,7 @@ export default class UserLayout extends Component {
           <a href="#" className="meta">
             <span className="title">LOGO</span>
           </a>
-          <p className="desc">让前端开发简单而友好</p>
+          <p className="desc">icework基础框架</p>
         </div>
 
         <Switch>

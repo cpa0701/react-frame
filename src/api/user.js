@@ -15,13 +15,13 @@ export async function getUserProfile() {
 export async function login(params) {
   const { password, username } = params;
   let data = {};
-  if (username === 'admin' && password === 'admin') {
+  if (username === 'admin' && password === '123456') {
     data = await {
       status: 200,
       statusText: 'ok',
       currentAuthority: 'admin',
     };
-  } else if (username === 'user' && password === 'user') {
+  } else if (username === 'user' && password === '123456') {
     data = await {
       status: 200,
       statusText: 'ok',
