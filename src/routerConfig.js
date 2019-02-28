@@ -1,25 +1,24 @@
 // 以下文件格式为描述路由的协议格式
 // 你可以调整 routerConfig 里的内容
 // 变量名 routerConfig 为 iceworks 检测关键字，请不要修改名称
-import asyncComponent from './components/AsyncComponent/Loadable';
+
+import UserLogin from './pages/UserLogin';
+import UserRegister from './pages/UserRegister';
+import Dashboard from './pages/Dashboard';
+import Charts from './pages/Charts';
+import BaiscCharts from './pages/BaiscCharts';
+import Terms from './pages/Terms';
+import Result from './pages/Result';
+import BasicList from './pages/BasicList';
+import ProjectList from './pages/ProjectList';
+import BasicTable from './pages/BasicTable';
+import GeneralTable from './pages/GeneralTable';
+import Profile from './pages/Profile';
+import Setting from './pages/Setting';
+import Fail from './pages/Fail';
 import { Empty, Forbidden, NotFound, ServerError } from './pages/Exception';
 import { getRouterData } from './utils/utils';
 import { asideMenuConfig } from './menuConfig';
-
-const UserLogin = asyncComponent(() => import('./pages/UserLogin'));
-const UserRegister = asyncComponent(() => import('./pages/UserRegister'));
-const Dashboard = asyncComponent(() => import('./pages/Dashboard'));
-const Charts = asyncComponent(() => import('./pages/Charts'));
-const BaiscCharts = asyncComponent(() => import('./pages/BaiscCharts'));
-const Terms = asyncComponent(() => import('./pages/Terms'));
-const Result = asyncComponent(() => import('./pages/Result'));
-const BasicList = asyncComponent(() => import('./pages/BasicList'));
-const ProjectList = asyncComponent(() => import('./pages/ProjectList'));
-const BasicTable = asyncComponent(() => import('./pages/BasicTable'));
-const GeneralTable = asyncComponent(() => import('./pages/GeneralTable'));
-const Profile = asyncComponent(() => import('./pages/Profile'));
-const Setting = asyncComponent(() => import('./pages/Setting'));
-const Fail = asyncComponent(() => import('./pages/Fail'));
 
 const routerConfig = [
   {
