@@ -29,6 +29,7 @@
     "react/sort-comp": 0,
     "react/prop-types": 0,
     "react/jsx-first-prop-new-line": 0,
+    "linebreak-style": [0 ,"error", "windows"],
     "react/jsx-filename-extension": [
       1,
       {
