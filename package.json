@@ -87,5 +87,29 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "title": "飞冰基础框架"
+  "title": "飞冰基础框架",
+  "proxyConfig": {
+    "/ete-job": {
+      "enable": true,
+      "target": "http://10.45.50.199:8050"
+    },
+    "/metadataImport": {
+      "enable": true,
+      "target": "http://10.45.50.199:18088"
+    },
+    "/**": {
+      "enable": true,
+      "target": "http://10.45.50.199:18088"
+    }
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cpa0701/react-frame.git"
+  },
+  "author": "chenpengan",
+  "license": "ISC"
 }
