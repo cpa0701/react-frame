@@ -25,9 +25,8 @@ class UserLogin extends Component {
     super(props);
     this.state = {
       value: {
-        username: '',
+        account: '',
         password: '',
-        checkbox: false,
       },
     };
   }
@@ -56,7 +55,7 @@ class UserLogin extends Component {
                 innerBefore={
                   <Icon type="person" size="small" className="inputIcon" />
                 }
-                name="username"
+                name="account"
                 maxLength={20}
                 placeholder="用户名"
               />
@@ -71,11 +70,11 @@ class UserLogin extends Component {
                 placeholder="密码"
               />
             </FormItem>
-            <FormItem>
-              <Checkbox name="checkbox" className="checkbox">
-                记住账号
-              </Checkbox>
-            </FormItem>
+            {/* <FormItem> */}
+            {/* <Checkbox name="checkbox" className="checkbox"> */}
+            {/* 记住账号 */}
+            {/* </Checkbox> */}
+            {/* </FormItem> */}
             <Row className="formItem">
               <Form.Submit
                 type="primary"

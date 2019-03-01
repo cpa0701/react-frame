@@ -46,7 +46,9 @@
     "react-router-dom": "^4.2.2",
     "react-router-redux": "5.0.0-alpha.6",
     "redux": "3.6.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "terser-webpack-plugin": "^1.2.3",
+    "uglifyjs-webpack-plugin": "^2.1.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.3",
@@ -90,17 +92,9 @@
   },
   "title": "飞冰基础框架",
   "proxyConfig": {
-    "/ete-job": {
-      "enable": true,
-      "target": "http://10.45.50.199:8050"
-    },
-    "/metadataImport": {
-      "enable": true,
-      "target": "http://10.45.50.199:18088"
-    },
     "/**": {
       "enable": true,
-      "target": "http://10.45.50.199:18088"
+      "target": "http://10.45.50.199:18089"
     }
   },
   "main": "index.js",

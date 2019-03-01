@@ -3,9 +3,10 @@
  */
 import { Switch, Route, Redirect } from 'react-router-dom';
 import React from 'react';
+import asyncComponent from './components/AsyncComponent/Loadable';
 
-import UserLayout from './layouts/UserLayout';
-import BasicLayout from './layouts/BasicLayout';
+const UserLayout = asyncComponent(() => import('./layouts/UserLayout'));
+const BasicLayout = asyncComponent(() => import('./layouts/BasicLayout'));
 
 // 按照 Layout 分组路由
 // UserLayout 对应的路由：/user/xxx

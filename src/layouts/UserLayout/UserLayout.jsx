@@ -14,17 +14,17 @@ export default class UserLayout extends Component {
 
   render() {
     return (
-      <Layout className="user-layout">
-        <div className="header">
-          <a href="#" className="meta">
-            <span className="title">LOGO</span>
-          </a>
-          <p className="desc">icework基础框架</p>
-        </div>
+      <Layout className="user-layout" >
+        <div className="header" >
+          <a href="#" className="meta" >
+            <span className="title" >LOGO</span >
+          </a >
+          <p className="desc" >icework基础框架</p >
+        </div >
 
-        <Switch>
+        <Switch >
           {routerData.map((item, index) => {
-            return item.component ? (
+            return (item.component && item.path.includes('user')) ? (
               <Route
                 key={index}
                 path={item.path}
@@ -35,9 +35,9 @@ export default class UserLayout extends Component {
           })}
 
           <Redirect exact from="/user" to="/user/login" />
-        </Switch>
+        </Switch >
         <Footer />
-      </Layout>
+      </Layout >
     );
   }
 }

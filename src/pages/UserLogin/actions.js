@@ -17,6 +17,7 @@
 
 import { push } from 'react-router-redux';
 import { Message } from '@alifd/next';
+// import { login } from '../../api/login';
 import { login } from '../../api/user';
 import { setAuthority } from '../../utils/authority';
 import { reloadAuthorized } from '../../utils/Authorized';
@@ -61,7 +62,6 @@ export const userLogin = (params) => {
     dispatch(userLoginRequest());
     try {
       const response = await login(params);
-
       dispatch(userLoginSuccess(response.data));
 
       if (response.data.status === 200) {
