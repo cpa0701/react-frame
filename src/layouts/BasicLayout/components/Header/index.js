@@ -1,6 +1,6 @@
 /* eslint jsx-a11y/no-noninteractive-element-interactions:0 */
 import React, { Component } from 'react';
-import { Balloon, Nav } from '@alifd/next';
+import { Balloon, Nav, Icon } from '@alifd/next';
 import IceImg from '@icedesign/img';
 import Layout from '@icedesign/layout';
 import FoundationSymbol from '@icedesign/foundation-symbol';
@@ -40,11 +40,13 @@ export default class Header extends Component {
         style={{ ...style }}
       >
         <Logo />
-
-        <div className="ice-design-layout-header-menu">
+        <a className="collapse-btn" onClick={this.props.toggleCollapse} >
+          <Icon type={this.props.collapsed ? 'arrow-double-right' : 'arrow-double-left'} />
+        </a >
+        <div className="ice-design-layout-header-menu" >
           {/* Header 菜单项 begin */}
           {headerMenuConfig && headerMenuConfig.length > 0 ? (
-            <Nav direction="hoz" type="secondary" selectedKeys={[]}>
+            <Nav direction="hoz" type="secondary" selectedKeys={[]} >
               {headerMenuConfig.map((nav, idx) => {
                 const linkProps = {};
                 if (nav.newWindow) {
@@ -57,80 +59,78 @@ export default class Header extends Component {
                 }
                 const name = formatMessage({ id: this.getLocaleKey(nav) });
                 return (
-                  <Nav.Item key={idx}>
+                  <Nav.Item key={idx} >
                     {linkProps.to ? (
                       <Link {...linkProps}>
                         {nav.icon ? (
                           <FoundationSymbol type={nav.icon} size="small" />
                         ) : null}{' '}
                         {!isMobile ? name : null}
-                      </Link>
+                      </Link >
                     ) : (
                       <a {...linkProps}>
                         {nav.icon ? (
                           <FoundationSymbol type={nav.icon} size="small" />
                         ) : null}{' '}
                         {!isMobile ? name : null}
-                      </a>
+                      </a >
                     )}
-                  </Nav.Item>
+                  </Nav.Item >
                 );
               })}
-            </Nav>
+            </Nav >
           ) : null}
           {/* Header 菜单项 end */}
-
           {/* 多语言选择 */}
           <SelectLang />
-
           {/* Header 右侧内容块 */}
           <Balloon
             trigger={
-              <div className="ice-design-header-userpannel">
+              <div className="ice-design-header-userpannel" >
                 <IceImg
                   height={40}
                   width={40}
                   src="https://img.alicdn.com/tfs/TB1L6tBXQyWBuNjy0FpXXassXXa-80-80.png"
                   className="user-avatar"
                 />
-                <div className="user-profile">
-                  <span className="user-name">
+                <div className="user-profile" >
+                  <span className="user-name" >
                     <FormattedMessage id="app.header.user.name" />
-                  </span>
+                  </span >
                   <br />
-                  <span className="user-department">
+                  <span className="user-department" >
                     <FormattedMessage id="app.header.user.department" />
-                  </span>
-                </div>
+                  </span >
+                </div >
                 <FoundationSymbol
                   type="angle-down"
                   size="small"
                   className="icon-down"
                 />
-              </div>
+              </div >
             }
             closable={false}
             className="user-profile-menu"
           >
-            <ul>
+            <ul >
               <li
                 className="user-profile-menu-item"
                 onClick={this.handleSetting}
               >
                 <FoundationSymbol type="repair" size="small" />
                 <FormattedMessage id="app.header.user.setting" />
-              </li>
+              </li >
               <li
                 className="user-profile-menu-item"
                 onClick={this.props.handleLogout}
               >
                 <FoundationSymbol type="person" size="small" />
                 <FormattedMessage id="app.header.user.logout" />
-              </li>
-            </ul>
-          </Balloon>
-        </div>
-      </Layout.Header>
+              </li >
+            </ul >
+          </Balloon >
+        </div >
+      </Layout.Header >
     );
   }
 }

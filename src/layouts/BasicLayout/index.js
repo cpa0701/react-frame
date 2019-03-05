@@ -22,6 +22,7 @@ export default class BasicLayout extends Component {
 
     this.state = {
       isScreen: 'isDesktop',
+      collapsed: false,
     };
   }
 
@@ -29,6 +30,9 @@ export default class BasicLayout extends Component {
     this.enquireScreenRegister();
   }
 
+  toggleCollapse = () => {
+    this.setState({ collapsed: !this.state.collapsed });
+  };
   /**
    * 注册监听屏幕的变化，可根据不同分辨率做对应的处理
    */
@@ -60,25 +64,26 @@ export default class BasicLayout extends Component {
     const layoutClassName = 'ice-design-layout-dark ice-design-layout';
 
     return (
-      <div className={layoutClassName}>
-        <Layout>
+      <div className={layoutClassName} >
+        <Layout >
           <Header
             isMobile={isMobile}
             profile={profile}
             handleLogout={userLogout}
+            toggleCollapse={this.toggleCollapse}
+            collapsed={this.state.collapsed}
           />
-          <Layout.Section scrollable>
-            <Layout.Aside width="auto" type={null}>
-              <Aside isMobile={isMobile} />
-            </Layout.Aside>
-            <Layout.Main>
+          <Layout.Section scrollable >
+            <Layout.Aside width="auto" type={null} >
+              <Aside isMobile={isMobile} collapsed={this.state.collapsed} />
+            </Layout.Aside >
+            <Layout.Main >
               <MainRoutes />
-            </Layout.Main>
-          </Layout.Section>
-
+            </Layout.Main >
+          </Layout.Section >
           <Footer />
-        </Layout>
-      </div>
+        </Layout >
+      </div >
     );
   }
 }

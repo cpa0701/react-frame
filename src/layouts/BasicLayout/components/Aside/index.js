@@ -32,6 +32,14 @@ export default class Aside extends Component {
     this.openKeysCache = openKeys;
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.collapsed) {
+      this.setState({ openKeys: [] });
+    } else {
+      this.setState({ openKeys: this.openKeysCache });
+    }
+  }
+
   /**
    * 响应式通过抽屉形式切换菜单
    */
@@ -121,23 +129,23 @@ export default class Aside extends Component {
               ) : null
             }
             label={
-              <span className="ice-menu-collapse-hide">
+              <span className="ice-menu-collapse-hide" >
                 <FormattedMessage id={this.getLocaleKey(item)} />
-              </span>
+              </span >
             }
           >
             {childrenItems}
-          </SubNav>
+          </SubNav >
         );
       }
       return null;
     }
     return (
-      <NavItem key={item.path}>
-        <Link to={item.path}>
+      <NavItem key={item.path} >
+        <Link to={item.path} >
           <FormattedMessage id={this.getLocaleKey(item)} />
-        </Link>
-      </NavItem>
+        </Link >
+      </NavItem >
     );
   };
 
@@ -158,6 +166,7 @@ export default class Aside extends Component {
     const {
       location: { pathname },
       isMobile,
+      collapsed,
     } = this.props;
 
     return (
@@ -167,14 +176,20 @@ export default class Aside extends Component {
         {isMobile && <Logo />}
 
         {isMobile && !openDrawer && (
-          <a className="menu-btn" onClick={this.toggleMenu}>
+          <a className="menu-btn" onClick={this.toggleMenu} >
             <FoundationSymbol type="menu" size="small" />
-          </a>
+          </a >
         )}
 
         <Nav
-          style={{ width: 200 }}
+          style={{ width: this.state.collapse ? 60 : 200 }}
           direction="ver"
+          iconOnly={collapsed}
+          hasArrow={false}
+          openMode="single"
+          hasTooltip
+          triggerType={collapsed ? 'hover' : 'click'}
+          mode={collapsed ? 'popup' : 'inline'}
           activeDirection={null}
           selectedKeys={[pathname]}
           openKeys={this.state.openKeys}
@@ -183,8 +198,8 @@ export default class Aside extends Component {
           onSelect={this.onSelect}
         >
           {this.getNavMenuItems(asideMenuConfig)}
-        </Nav>
-      </div>
+        </Nav >
+      </div >
     );
   }
 }
