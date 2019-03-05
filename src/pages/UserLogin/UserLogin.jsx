@@ -47,10 +47,10 @@ class UserLogin extends Component {
 
   render() {
     return (
-      <div className="user-login">
-        <div className="formContainer">
-          <Form value={this.state.value} onChange={this.formChange}>
-            <FormItem required requiredMessage="必填" className="formItem">
+      <div className="user-login" >
+        <div className="formContainer" >
+          <Form value={this.state.value} onChange={this.formChange} >
+            <FormItem required requiredMessage="必填" className="formItem" >
               <Input
                 innerBefore={
                   <Icon type="person" size="small" className="inputIcon" />
@@ -59,8 +59,8 @@ class UserLogin extends Component {
                 maxLength={20}
                 placeholder="用户名"
               />
-            </FormItem>
-            <FormItem required requiredMessage="必填" className="formItem">
+            </FormItem >
+            <FormItem required requiredMessage="必填" className="formItem" >
               <Input
                 innerBefore={
                   <Icon type="lock" size="small" className="inputIcon" />
@@ -69,13 +69,13 @@ class UserLogin extends Component {
                 htmlType="password"
                 placeholder="密码"
               />
-            </FormItem>
-            {/* <FormItem> */}
-            {/* <Checkbox name="checkbox" className="checkbox"> */}
-            {/* 记住账号 */}
-            {/* </Checkbox> */}
-            {/* </FormItem> */}
-            <Row className="formItem">
+            </FormItem >
+            <FormItem >
+              <Checkbox name="checkbox" className="checkbox" >
+                记住账号
+              </Checkbox >
+            </FormItem >
+            <Row className="formItem" >
               <Form.Submit
                 type="primary"
                 validate
@@ -83,23 +83,23 @@ class UserLogin extends Component {
                 className="submitBtn"
               >
                 登 录
-              </Form.Submit>
-              <p className="account">
-                <span className="tips-text" style={{ marginRight: '20px' }}>
+              </Form.Submit >
+              <p className="account" >
+                <span className="tips-text" style={{ marginRight: '20px' }} >
                   管理员登录：admin/admin
-                </span>
-                <span className="tips-text">用户登录：user/user</span>
-              </p>
-            </Row>
+                </span >
+                <span className="tips-text" >用户登录：user/user</span >
+              </p >
+            </Row >
 
-            <Row className="tips">
-              <Link to="/user/register" className="tips-text">
+            <Row className="tips" >
+              <Link to="/user/register" className="tips-text" >
                 立即注册
-              </Link>
-            </Row>
-          </Form>
-        </div>
-      </div>
+              </Link >
+            </Row >
+          </Form >
+        </div >
+      </div >
     );
   }
 }
@@ -114,12 +114,12 @@ const mapStateToProps = (state) => {
 
 const withConnect = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 );
 
 const withReducer = injectReducer({ key: 'login', reducer });
 
 export default compose(
   withReducer,
-  withConnect
+  withConnect,
 )(UserLogin);
